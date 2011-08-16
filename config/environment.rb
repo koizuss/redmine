@@ -19,7 +19,13 @@ end
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence those specified here
-  
+
+  # session setting
+  # refs: http://hajimete-ruby.jugem.jp/?eid=27
+  chars = ('a'..'z').to_a + ('A'..'Z').to_a + ('0'..'9').to_a
+  secret = Array.new(60){chars[rand(chars.size)]}.join
+  config.action_controller.session = { :key => "_hello_session", :secret => secret }  
+
   # Skip frameworks you're not going to use
   # config.frameworks -= [ :action_web_service, :action_mailer ]
 

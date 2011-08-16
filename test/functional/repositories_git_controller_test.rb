@@ -243,6 +243,27 @@ class RepositoriesGitControllerTest < ActionController::TestCase
       end
     end
 
+    def test_diff_truncated
+      @repository.fetch_changesets
+      @repository.reload
+      Setting.diff_max_lines_displayed = 5
+
+      # Truncated diff of changeset 2f9c0091
+      with_cache do
+        get :diff, :id   => PRJ_ID, :type => 'inline',
+            :rev  => '2f9c0091c754a91af7a9c478e36556b4bde8dcf7'
+        assert_response :success
+        assert @response.body.include?("... This diff was truncated")
+
+        Setting.default_language = 'fr'
+        get :diff, :id   => PRJ_ID, :type => 'inline',
+            :rev  => '2f9c0091c754a91af7a9c478e36556b4bde8dcf7'
+        assert_response :success
+        assert ! @response.body.include?("... This diff was truncated")
+        assert @response.body.include?("... Ce diff")
+      end
+    end
+
     def test_diff_two_revs
       @repository.fetch_changesets
       @repository.reload

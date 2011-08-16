@@ -1020,4 +1020,7 @@ sv:
   enumeration_doc_categories: Dokumentkategorier
   enumeration_activities: Aktiviteter (tidsuppföljning)
   enumeration_system_activity: Systemaktivitet
+<<<<<<< HEAD
   label_diff: diff
+=======
+>>>>>>> 0cf5a6b

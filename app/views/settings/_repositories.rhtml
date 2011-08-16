@@ -88,7 +88,11 @@
 
 <p><%= setting_select :commit_logtime_activity_id,
                       [[l(:label_default), 0]] +
+<<<<<<< HEAD
                           TimeEntryActivity.shared.active.collect{|activity| [activity.name, activity.id.to_s]},
+=======
+                          TimeEntryActivity.shared.all.collect{|activity| [activity.name, activity.id.to_s]},
+>>>>>>> 0cf5a6b
                       :disabled => !Setting.commit_logtime_enabled?%></p>
 </fieldset>
 

@@ -320,7 +320,11 @@ private
         @issue.watcher_user_ids = params[:issue]['watcher_user_ids']
       end
     end
+<<<<<<< HEAD
     @priorities = IssuePriority.active
+=======
+    @priorities = IssuePriority.all
+>>>>>>> 0cf5a6b
     @allowed_statuses = @issue.new_statuses_allowed_to(User.current, true)
   end
 

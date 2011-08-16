@@ -77,9 +77,12 @@ class Repository::Git < Repository
 
   def default_branch
     scm.default_branch
+<<<<<<< HEAD
   rescue Exception => e
     logger.error "git: error during get default branch: #{e.message}"
     nil
+=======
+>>>>>>> 0cf5a6b
   end
 
   def find_changeset_by_name(name)

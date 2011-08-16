@@ -196,7 +196,11 @@ class Query < ActiveRecord::Base
   
   # Returns true if the query is visible to +user+ or the current user.
   def visible?(user=User.current)
+<<<<<<< HEAD
     (project.nil? || user.allowed_to?(:view_issues, project)) && (self.is_public? || self.user_id == user.id)
+=======
+    self.is_public? || self.user_id == user.id
+>>>>>>> 0cf5a6b
   end
 
   def editable_by?(user)

@@ -1082,6 +1082,7 @@ ru:
   field_root_directory: Корневая директория
   field_cvs_module: Модуль
   field_cvsroot: CVSROOT
+<<<<<<< HEAD
   text_git_repository_note: Локальное (bare) хранилище (например, /gitrepo, c:\gitrepo)
   text_mercurial_repository_note: Локальное хранилище (например, /hgrepo, c:\hgrepo)
   text_scm_command: Команда
@@ -1093,3 +1094,12 @@ ru:
   label_between: между
   setting_issue_group_assignment: Разрешить назначение задач группам пользователей
   label_diff: diff
+=======
+  text_git_repository_note: Локальный и bare репозиторий (например, /gitrepo, c:\gitrepo)
+  text_mercurial_repository_note: Локальный репозиторий (например, /hgrepo, c:\hgrepo)
+  text_scm_command: Command
+  text_scm_command_version: Version
+  label_git_report_last_commit: Report last commit for files and directories
+  text_scm_config: You can configure your scm commands in config/configuration.yml. Please restart the application after editing it.
+  text_scm_command_not_available: Scm command is not available. Please check settings on the administration panel.
+>>>>>>> 0cf5a6b

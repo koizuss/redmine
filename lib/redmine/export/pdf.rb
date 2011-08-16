@@ -109,6 +109,7 @@ module Redmine
 
         def RDMCell(w ,h=0, txt='', border=0, ln=0, align='', fill=0, link='')
           Cell(w, h, fix_text_encoding(txt), border, ln, align, fill, link)
+<<<<<<< HEAD
         end
 
         def RDMMultiCell(w, h=0, txt='', border=0, align='', fill=0, ln=1)
@@ -117,6 +118,12 @@ module Redmine
 
         def RDMwriteHTMLCell(w, h, x, y, html='', border=0, ln=1, fill=0)
           writeHTMLCell(w, h, x, y, fix_text_encoding(html), border, ln, fill)
+=======
+        end
+
+        def RDMMultiCell(w, h=0, txt='', border=0, align='', fill=0, ln=1)
+          MultiCell(w, h, fix_text_encoding(txt), border, align, fill, ln)
+>>>>>>> 0cf5a6b
         end
 
         def Footer
@@ -344,9 +351,13 @@ module Redmine
         pdf.SetFontStyle('B',9)
         pdf.RDMCell(35+155, 5, l(:field_description), "LRT", 1)
         pdf.SetFontStyle('',9)
+<<<<<<< HEAD
         pdf.RDMwriteHTMLCell(35+155, 5, 0, 0,
             Redmine::WikiFormatting.to_html(
               Setting.text_formatting, issue.description.to_s),"LRB")
+=======
+        pdf.RDMMultiCell(35+155, 5, issue.description.to_s, "LRB")
+>>>>>>> 0cf5a6b
         pdf.Ln
 
         if issue.changesets.any? &&
