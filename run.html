@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<title>Redmine Run</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script> 
+<script type="text/javascript">
+$(function(){
+	var url = 'http://localhost:3000';
+	var interval = 1000;
+	var retryMax = 10;
+	var count = 0;
+	var load = function(){
+		count++;
+		$('#count').text(count);
+		$.ajax({
+			type: 'GET',
+			url: url,
+			dataType: 'html',
+			success: function(){
+				location.href = url;
+			},
+			error: function(){
+				if(count > retryMax){
+					$('#loading').hide();
+					$('#error').show();
+				}else{
+					window.setTimeout(load, interval);
+				}	
+			}
+		});
+	};
+	
+	$('#error').hide();
+	$('#url').text(url);
+	load();
+});
+</script>
+</head>
+<body>
+<p id="loading">loading...</p>
+<p id="error">Oops!!!</p>
+<p>url: <span id="url"></span></p>
+<p>count: <span id="count"></span></p>
+</body>
+</html>
