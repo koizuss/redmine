@@ -16,7 +16,6 @@
 /log/mongrel_debug
 /public/dispatch.*
 /public/plugin_assets
-/tmp/*
 /tmp/cache/*
 /tmp/sessions/*
 /tmp/sockets/*
