@@ -3,3 +3,30 @@
 Redmine is a flexible project management web application written using Ruby on Rails framework.
 
 More details can be found at in the doc directory or on the official website http://www.redmine.org
+
+== Quick Start
+
+$ cd redmine
+$ rake db:migrate
+$ sudo gem install -v=0.4.2 i18n -v=2.3.11 rails sqlite3
+$ ./script/server
+$ open http://0.0.0.0:3000
+
+ref:: http://d.hatena.ne.jp/koizuss/20110805/1312562227
+
+== Deploy to Heroku
+
+1. heroku setup
+$ sudo gem install heroku taps
+$ heroku create <app-name>
+
+2. deploy databass
+$ heroku db:push
+
+3. deploy redmine
+$ git push heroku <branch>:master
+
+4. browse
+$ heroku open
+
+ref:: http://d.hatena.ne.jp/koizuss/20111019/1319045114
